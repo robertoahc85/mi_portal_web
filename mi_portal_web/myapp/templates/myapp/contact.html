@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Pagina de Contacto</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-    <body>
+{% extends 'myapp/base.html' %}
+{% block title%} Contact {% endblock title %}
+{% load static %}
+{%block content%}
+<div class="content-personalizado">
         <h1> Bienvenidos a esta pagina de Contacto</h1>
             <p> Esta es la pagina Contacto </p>
-            
-    </body>
-</html>
+        </div>           
+{% endblock content %}            

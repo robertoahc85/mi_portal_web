@@ -10,7 +10,9 @@ def about(request):
     return render(request,'myapp/about.html')
 
 def contact(request):
-    # return HttpResponse("Pagina de Contacto")
     return render(request,'myapp/contact.html')
+
+def portafolio(request):
+    return render(request,'myapp/portafolio.html')
 
 # Create your views here.
