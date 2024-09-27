@@ -21,9 +21,9 @@ def testimonail(request):
 
 def portafolio(request):
     projects = [
-        {'name':" Pagina de Restaurante", 'description': 'Proyecto para cadena de restuarantes mexicanos','image':'https://cache.sessionize.com/image/142b-1140o400o3-Xy9QSX1ziuwoqN117MNd8A.png','url': 'https://antonias.us/'},
-        {'name':" Pagina de Inmobiliarias", 'description': 'Proyecto para venta de casas','image':'static/images/img1.jpg','url': 'https://www.urbanhouse.com.mx/'},
-        {'name':" Pagina de Escuela", 'description': 'Proyecto para escuela de Psicologia','image':'','url': 'https://www.impotlax.org/'},
+        {'name':" Pagina de Restaurante", 'description': 'Proyecto para cadena de restuarantes mexicanos','image':'images/img1.jpg','url': 'https://antonias.us/'},
+        {'name':" Pagina de Inmobiliarias", 'description': 'Proyecto para venta de casas','image':'images/img2.jpg','url': 'https://www.urbanhouse.com.mx/'},
+        {'name':" Pagina de Escuela", 'description': 'Proyecto para escuela de Psicologia','image':'images/img3.jpg','url': 'https://www.impotlax.org/'},
     ]
     return render(request,'myapp/portafolio.html', {'projects': projects})
 
