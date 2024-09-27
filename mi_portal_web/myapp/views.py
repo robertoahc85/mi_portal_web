@@ -13,6 +13,11 @@ def contact(request):
     return render(request,'myapp/contact.html')
 
 def portafolio(request):
-    return render(request,'myapp/portafolio.html')
+    projects = [
+        {'name':" Pagina de Restaurante", 'description': 'Proyecto para cadena de restuarantes mexicanos','image':'images/img1.jpg','url': 'https://antonias.us/'},
+        {'name':" Pagina de Inmobiliarias", 'description': 'Proyecto para venta de casas','image':'images/img1.jpg','url': 'https://www.urbanhouse.com.mx/'},
+        {'name':" Pagina de Escuela", 'description': 'Proyecto para escuela de Psicologia','image':'','url': 'https://www.impotlax.org/'},
+    ]
+    return render(request,'myapp/portafolio.html', {'projects': projects})
 
 # Create your views here.

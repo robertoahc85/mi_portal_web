@@ -3,5 +3,19 @@
 {% load static %}
 {%block content%}
 <h1>Portafolio</h1>
+<div class="row">
+    {%for  project in projects%}
+    <div class="card" style="width: 18rem;">
+        <img src={{ project.image }} class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{project.name  }}</h5>
+          <p class="card-text">{{ project.description }}</p>
+          <a href={{ project.url }}  target="_blank" class="btn btn-primary">Visitar el sitio</a>
+        </div>
+      </div>
+
+
+    {%endfor %}
+</div>
      
 {% endblock content %} 
