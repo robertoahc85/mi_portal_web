@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
-from .form import ContactForm
+from .form import ContactForm ,EventForm
+from .models import Event
 
 def home(request):
     #return HttpResponse("Bienvenido a tu pagina")
@@ -35,4 +36,16 @@ def portafolio(request):
     ]
     return render(request,'myapp/portafolio.html', {'projects': projects})
 
-# Create your views here.
+def event_register_view(request):
+    if request.method == 'POST':
+        form = EventForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('event_list')
+    else:
+        form = EventForm()
+    return render(request,'myapp/event_register.html',{'form': form}) 
+
+def event_list_view(request):
+     events = Event.objects.all()  #Select * from Events   
+     return render(request, 'myapp/event_list.html',{'events':events})
