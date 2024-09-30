@@ -1,5 +1,6 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from .form import ContactForm
 
 def home(request):
     #return HttpResponse("Bienvenido a tu pagina")
@@ -10,7 +11,14 @@ def about(request):
     return render(request,'myapp/about.html')
 
 def contact(request):
-    return render(request,'myapp/contact.html')
+    if request.method == 'POST':
+     form = ContactForm(request.POST)
+     if form.is_valid():
+        form.save()
+        return redirect('home')
+    else:
+        form = ContactForm()
+    return render(request,'myapp/contact.html',{'form': form})
 
 def testimonail(request):
     testimonail_data = [
