@@ -1,16 +1,8 @@
-<!DOCTYPE html>
+{% extends 'myapp/base.html' %}
+{% block title%} About {% endblock title %}
 {% load static %}
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Pagina Acerca de</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  
-    </head>
-    <body>
+{%block content%}
+ main
         <h1> Bienvenidos a esta pagina de acerca de<h1>
             <p> Esta es la pagina acerca de </p>
             Agregar otra tres paginas portafolio, our teams, testimonails. y le va agregar tres elemente con estilo
@@ -18,4 +10,16 @@
             h3
 
     </body>
-</html>
+    <p>
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+          Toggle width collapse
+        </button>
+      </p>
+      <div style="min-height: 120px;">
+        <div class="collapse collapse-horizontal" id="collapseWidthExample">
+          <div class="card card-body" style="width: 300px;">
+            This is some placeholder content for a horizontal collapse. It's hidden by default and shown when triggered.
+          </div>
+        </div>
+      </div>
+{% endblock content %} 

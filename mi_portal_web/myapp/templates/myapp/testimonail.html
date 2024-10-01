@@ -1,0 +1,22 @@
+{% extends 'myapp/base.html' %} {% block title%} Testimonail {% endblock title%} 
+{% load static %} {%block content%}
+<h1>Testimonios</h1>
+<a href="{% url 'testmonial_register' %}">Agrega un testimonio</a>
+<div class="row">
+{%if testimonails%}
+   {%for testimonio in testimonails%}
+  <div class="card" style="width: 18rem">
+    <h5 class="card-title">{{testimonio.nombre }}</h5>
+    <div class="card-body">
+   
+    <p class="card-text"><b>Cargo:</b>{{ testimonio.puesto }}<i>Empresa:</i><span>{{ testimonio.empresa }}</span></p>
+      <p class="card-text">{{ testimonio.testimonio }}</p>
+    </div>
+  </div>
+  {%endfor %}
+  {% else %}
+  <p>No hay testimonio al momento</p>
+{%endif%}
+</div>
+
+{% endblock content %}

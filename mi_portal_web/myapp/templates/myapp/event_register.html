@@ -1,0 +1,9 @@
+{% extends 'myapp/base.html' %}
+{% block title%} Registar Eventos {% endblock title %}
+<h2>Registrar Evento</h2>
+{%block content%}
+<form method= "post">
+    {%include 'myapp/_form.html' %}
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+{% endblock content %}
