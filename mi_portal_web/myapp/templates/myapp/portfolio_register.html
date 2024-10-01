@@ -1,0 +1,11 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}Register Portfolio{% endblock %}
+
+{% block content %}
+<h2>Register Portfolio</h2>
+<form method="post" enctype="multipart/form-data">
+    {% include 'myapp/_form.html' %}
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
-from .form import ContactForm ,EventForm
-from .models import Event
+from .form import ContactForm ,EventForm , TestimonioForm
+from .models import Event,Testimonio
 
 def home(request):
     #return HttpResponse("Bienvenido a tu pagina")
@@ -22,11 +22,22 @@ def contact(request):
     return render(request,'myapp/contact.html',{'form': form})
 
 def testimonail(request):
-    testimonail_data = [
-        {'nombre':" Roberto", 'puesto':" CEO of M6.33 Tecnology", 'testimonio':"Excelente Servicio"},
-        {'nombre':" Roberto", 'puesto':" CEO of M6.33 Tecnology", 'testimonio':"Excelente Servicio"},
-    ]
+    # testimonail_data = [
+    #     {'nombre':" Roberto", 'puesto':" CEO of M6.33 Tecnology", 'testimonio':"Excelente Servicio"},
+    #     {'nombre':" Roberto", 'puesto':" CEO of M6.33 Tecnology", 'testimonio':"Excelente Servicio"},
+    # ]
+    testimonail_data = Testimonio.objects.all
     return render(request,'myapp/testimonail.html', {'testimonails': testimonail_data})
+
+def testimonio_registro(request):
+    if request.method == 'POST':
+        form = TestimonioForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('testimonail_list')
+    else: 
+        form = TestimonioForm()
+    return render(request, 'myapp/testimonio_registro.html',{'form':form})    
 
 def portafolio(request):
     projects = [
@@ -49,3 +60,7 @@ def event_register_view(request):
 def event_list_view(request):
      events = Event.objects.all()  #Select * from Events   
      return render(request, 'myapp/event_list.html',{'events':events})
+ 
+ 
+ #Crear el modelo para  portafolio y testimonio , 
+ # crear el formulario alta de testimonios y portafolio
